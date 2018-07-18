@@ -33,7 +33,7 @@ public class Application {
     public static void main(String[] args) {
 
         SpringApplication.run(Application.class, args);
-//
+
         String schema = "type Query{hello: String}";
 
         SchemaParser schemaParser = new SchemaParser();
@@ -55,14 +55,17 @@ public class Application {
     }
 
     @Bean
-    CommandLineRunner demo(PersonRepository personRepository) {
+    CommandLineRunner demo(PersonRepository personRepository, MemeRepository memeRepository) {
         return args -> {
 
             personRepository.deleteAll();
+            memeRepository.deleteAll();
+            Meme test = new Meme("negro wasap", "https://i.kym-cdn.com/photos/images/facebook/001/217/729/f9a.jpg", new Float(1.0), "gabriel");
+            memeRepository.save(test);
 
-            Person mauro = new Person("mauro");
-            Person gabi = new Person("gabi");
-            Person luka = new Person("luka");
+            Person mauro = new Person("mauro", "27");
+            Person gabi = new Person("gabi", "21");
+            Person luka = new Person("luka","19");
 
             List<Person> team = Arrays.asList(mauro, gabi, luka);
 

@@ -14,16 +14,23 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class Person {
 
-    @Id @GeneratedValue private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String name;
 
+    private String age;
+
     private Person() {
         // Empty constructor required as of Neo4j API 2.0.5
-    };
+    }
 
-    public Person(String name) {
+    ;
+
+    public Person(String name, String age) {
         this.name = name;
+        this.age = age;
     }
 
     /**
@@ -52,9 +59,5 @@ public class Person {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
