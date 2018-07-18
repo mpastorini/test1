@@ -30,5 +30,6 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')
     compile("com.graphql-java:graphql-java:9.0")
+    compile("org.springframework.boot:spring-boot-starter-data-neo4j")
 }
 
